@@ -1,0 +1,9 @@
+push 10
+push 10
+jmp 1:
+
+out
+1:
+push 42
+out
+end
