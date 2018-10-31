@@ -1,10 +1,10 @@
-#define EMPTY st.empty()
+#define EMPTY   st.empty()
 
-#define POP st.top(); st.pop()
+#define POP     st.top(); st.pop()
 
 #define PUSH(a) st.push(a)
 
-#define TOP st.top()
+#define TOP     st.top()
 
 #define isOK assert(!EMPTY);\
              int a = POP;   \
@@ -15,16 +15,18 @@
                int a = POP;                \
                assert(!EMPTY); int b = TOP;\
                PUSH(a);
-
+//___END___//
 DEF_CMD(end, 65, { isend = true; })
 
+//___OUT___//
 DEF_CMD(out, 66,
 {
     assert(!EMPTY);
     int out = POP;
-    printf("%d\n",out);
+    printf("%d\n", out);
 })
 
+//___PUSH___//
 DEF_CMD(push,67,
 {
     switch(code[ip++]){
@@ -43,6 +45,7 @@ DEF_CMD(push,67,
     }
 })
 
+//___POP___//
 DEF_CMD(pop, 68,
 {
     assert(!EMPTY);
@@ -60,30 +63,35 @@ DEF_CMD(pop, 68,
     }
 })
 
+//___ADD___//
 DEF_CMD(add, 69,
 {
     isOK;
     PUSH(a+b);
 })
 
+//___SUB___//
 DEF_CMD(sub, 70,
 {
     isOK;
     PUSH(a-b);
 })
 
+//___MUL___//
 DEF_CMD(mul, 71,
 {
     isOK;
     PUSH(a*b);
 })
 
+//___DIV___//
 DEF_CMD(div, 72,
 {
     isOK;
     PUSH(a/b);
 })
 
+//___SQRT___//
 DEF_CMD(sqrt,73,
 {
     assert(!EMPTY);
@@ -91,6 +99,7 @@ DEF_CMD(sqrt,73,
     PUSH(sqrt(a));
 })
 
+//___JMP___//
 DEF_CMD(jmp, 74,
 {
     if(code[ip]==-1)
@@ -99,6 +108,7 @@ DEF_CMD(jmp, 74,
     ip = code[ip];
 })
 
+//___JA___//
 DEF_CMD(ja,75,
 {
     canjmp;
@@ -108,6 +118,7 @@ DEF_CMD(ja,75,
         ip++;
 })
 
+//___JB___//
 DEF_CMD(jb,76,
 {
     canjmp;
@@ -117,6 +128,7 @@ DEF_CMD(jb,76,
         ip++;
 })
 
+//___JE___//
 DEF_CMD(je,77,
 {
     canjmp;
@@ -126,6 +138,7 @@ DEF_CMD(je,77,
         ip++;
 })
 
+//___CALL___//
 DEF_CMD(call, 78,
 {
     if(code[ip]==-1)
@@ -136,6 +149,7 @@ DEF_CMD(call, 78,
     }
 })
 
+//___RET___//
 DEF_CMD(ret,90,
 {
     assert(!functions.empty());
@@ -143,4 +157,11 @@ DEF_CMD(ret,90,
     functions.pop();
 })
 
+//___IN___//
+DEF_CMD(in, 91,
+{
+    int num;
+    scanf("%d",&num);
+    PUSH(num);
+})
 
