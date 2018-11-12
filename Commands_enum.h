@@ -3,8 +3,9 @@
 
 #define DEF_CMD(name,num, code_exp) CMD_##name = (num),
 
-enum Commands{
-#include"Commands.h"
+enum Commands
+{
+    #include"Commands.h"
 };
 
 #undef DEF_CMD

@@ -1,3 +1,4 @@
+// WOOF - WOOF!
 
 #ifndef CPU2_MYCPU_H
 #define CPU2_MYCPU_H
@@ -7,14 +8,10 @@
 
 typedef int code_t;
 
+int CPU (FILE* exe);
 
-std:: stack <int> functions;
-code_t Registers[16];
-code_t RAM[100];
-int CPU(FILE* exe);
+code_t* Load_code (FILE* exe, size_t* size);
 
-code_t* Load_code(FILE* exe, size_t& size);
-
-int Execute(code_t* code, size_t size);
+int Execute (code_t* code, size_t size);
 
 #endif //CPU2_MYCPU_H

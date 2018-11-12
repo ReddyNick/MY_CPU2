@@ -1,9 +1,51 @@
-push 10
-push 10
-jmp 1:
+
+push 1 // 0! = 1
+
+
+in     // what number
+pop ax // ax is the number
+
+push 0  //
+pop bx  // counter
+
+1:
+push ax  //
+push bx  // if(counter(bx)==number(ax))  goto 2
+je 2:    // else do cycle
+
+
+push 1   //
+push bx  //
+add      //
+pop bx   // bx++
+
+push bx // (n-1)!*n
+mul     //
+jmp 1:  // goto condition
+
+
+2:
 
 out
-1:
-push 42
-out
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+je 1:
+
+
+
