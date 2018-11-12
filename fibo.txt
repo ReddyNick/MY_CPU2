@@ -1,0 +1,81 @@
+//_____FIBONACCI_____//
+
+// stack = [F(n),F(n+1)]
+
+in             // input n
+pop cx
+
+push 1         // counter
+pop dx
+
+push 0         // the first two Fibonacci
+push 1         // numbers
+
+push cx        // if n == 1
+push dx
+je END:
+
+call fibonacci:        // function to find the number
+
+END:
+
+out
+end            //<--END
+
+
+fibonacci:
+
+
+    pop R1     // R1 = F(n+1)
+    pop R0     // R0 = F(n)
+
+    push R1    // stack = [F(n+1),F(n+1),F(n)]
+    push R1
+    push R0
+
+    add        // stack = [F(n+1),F(n+2)]
+
+    push 1     // dx++
+    push dx
+    add
+    pop dx
+
+    push dx
+    push cx
+    je 2:     // if dx == cx
+
+    call fibonacci:   // recursion
+
+    2:
+    ret
+
+
+
+
+
+
+
+
+
+
+//1
+//1
+//2
+//3
+//5
+//8
+//13
+//21
+//34
+//55
+//89
+//144
+//233
+//377
+//610
+//987
+//1597
+//2584
+//4181
+//6765
+//10946
