@@ -23,13 +23,7 @@ int Assembler (FILE *prog, FILE *exe, FILE *listing)
 
     //array for the code
     CODE code = Read_and_asm (prog, marks, listing, &marks_sz, marks_add);
-
-//    for (int i = 0; i < marks_sz; i++)
-//    {
-//        printf ("%s %d\n", marks[i], marks_add[i]);
-//    }
-
-
+    
     // repeat for marks
     marks_sz = 0;
     fclose (listing);

@@ -4,7 +4,10 @@
 #include "stdio.h"
 #include "string.h"
 
-
+// todo spaces
+// todo assembler.cpp big function
+// todo labes
+// todo pop-pop in jmp commands
 
 
 
@@ -14,7 +17,7 @@ int main ()
     char* fibonacci = "fibo.txt";
     char* square_eq = "square_eq.txt";
 
-    char* programm = fibonacci;
+    char* programm = square_eq;
 
     FILE* prog = fopen (programm, "r");
     FILE* exe = fopen  ("progexe.exe", "wb");
